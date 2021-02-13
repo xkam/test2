@@ -14,9 +14,11 @@
   ],
   "scripts": {
     "build": "rimraf dist/* && rollup -c && node rewrite-map.js",
-    "output": "npm run build && rimraf out/* && build-examples",
+    "xoutput": "vite build",
+    "output": "npm run build && vite build",
     "prepack": "npm run build && rimraf out/*",
-    "start": "serve-examples",
+    "serve": "vite preview",
+    "start": "vite",
     "test": "npm run output && jest"
   },
   "dependencies": {
@@ -36,16 +38,15 @@
     "@rollup/plugin-node-resolve": "^11",
     "@testing-library/dom": "^7",
     "express": "^4",
-    "marked": "^1",
     "open": "^7",
-    "parcel-bundler": "^1.12",
-    "postcss-import": "^12",
     "rimraf": "^3",
     "rollup": "^2",
+    "rollup-plugin-md": "^1",
     "rollup-plugin-postcss": "^3",
     "rollup-plugin-sourcemaps": "^0.6",
     "rollup-plugin-terser": "^7",
-    "style-inject": "^0.3"
+    "style-inject": "^0.3",
+    "vite": "^2.0.0-beta.65"
   },
   "alias": {
     "@activewidgets/js": "./"
